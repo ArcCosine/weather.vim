@@ -9,6 +9,7 @@ function! s:out(line)
 endfunction
 
 function! weather#list(A, L, P)
+
   let items = []
   for item in g:weather#city_list
     if !has_key(item, 'id')
@@ -22,6 +23,16 @@ function! weather#list(A, L, P)
 endfunction
 
 function! weather#all(...)
+
+  " check global
+  if exists('g:weather_city_name')
+    let location = filter(copy(g:weather#city_list), 'v:val.name == g:weather_city_name')
+    if len(location) > 0
+      call weather#city(location[0].id)
+    endif
+    return
+  endif
+
   if len(a:000) > 0
     let location = filter(copy(g:weather#city_list), 'v:val.name == a:000[0]')
     if len(location) > 0
@@ -108,7 +119,8 @@ function! weather#city(city)
 
   " 詳細
   call s:out('---------------------------------------------------------------')
-  call s:out(map(split(json.description.text, '。 \{0,1\}'), 'v:val . "。"'))
+  "call s:out(map(split(json.description.text, '。 \{0,1\}'), 'v:val . "。"'))
+  call s:out(json.description.text)
   call s:out('')
   call s:out(s:toAll)
   call s:out('')
@@ -124,7 +136,7 @@ function! weather#city(city)
 endfunction
 
 function! s:open_win()
-  if !exists('b:weather_win')
+  "if !exists('b:weather_win')
     new
     silent edit weather
     setl bt=nofile noswf wrap hidden nolist nomodifiable ft=weather
@@ -134,7 +146,7 @@ function! s:open_win()
     nmap <buffer><BS> <Plug>(weather-back)
     let b:weather_win = 0
     let b:cline = [0, 0]
-  endif
+  "endif
 endfunction
 
 function! weather#click()

@@ -9,7 +9,9 @@ vimで日本の天気を表示するプラグイン。
 
 Requirements
 ------------
-weather.vimは、cURLが必要です。
+weather.vimは、web-api pluginが必要です。
+https://github.com/mattn/webapi-vim
+
 
 Usage
 -----
@@ -17,13 +19,10 @@ Usage
 
 地名を省略した場合は、地域リストを表示します。
 
-Image
------
-:Weather
 
-![sample1](http://yuratomo.up.seesaa.net/image/weather-vim1-thumbnail2.PNG ":Weather")
+Option
+------
+let g:weather_city_name = '東京'
 
-:Weather さいたま
-
-![sample2](http://yuratomo.up.seesaa.net/image/weather-vim2-thumbnail2.PNG ":Weather さいたま")
+グローバル変数のweather_city_nameに地域名を指定すると、Weatherとtypeするだけで指定した都市の詳細を表示するようになります
 
