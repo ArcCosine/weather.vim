@@ -5,15 +5,15 @@ elseif exists("b:current_syntax")
 endif
 
 syn match weatherTitle "------------------------  WEATHER-VIM  ------------------------"
-syn keyword weatherToday ¡“ú
-syn keyword weatherTommorow –¾“ú
-syn keyword weatherDayAfterTommorow –¾Œã“ú
-syn match weatherSunny   "°"
-syn match weatherCloudy  "“Ü"
-syn match weatherRain    "‰J"
-syn match weatherSnow    "á"
-syn match weatherThunder "—‹"
-syn match weatherAll     ">>‘S‘"
+syn keyword weatherToday ä»Šæ—¥
+syn keyword weatherTommorow æ˜Žæ—¥
+syn keyword weatherDayAfterTommorow æ˜Žå¾Œæ—¥
+syn match weatherSunny   "æ™´"
+syn match weatherCloudy  "æ›‡"
+syn match weatherRain    "é›¨"
+syn match weatherSnow    "é›ª"
+syn match weatherThunder "é›·"
+syn match weatherAll     ">>å…¨å›½"
 syn match weatherDate    "(\d\d\d\d-\d\d-\d\d)"
 syn match weatherHL      "---------------------------------------------------------------"
 
